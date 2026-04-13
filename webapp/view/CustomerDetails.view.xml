@@ -17,7 +17,7 @@
                 <items>
                     <ColumnListItem id="ordersListItem">
                         <Text id="orderIDText" text="{OrderID}"/>
-                        <Text id="employeeText" text="{Employee/FirstName} {Employee/LastName}"/>
+                        <Text id="employeeText" text="{= ${Employee/FirstName}[0] + '.'} {Employee/LastName}"/>
                         <Text id="orderDateText" text="{path:'OrderDate', type:'sap.ui.model.type.Date', formatOptions:{style:'medium'}}"/>
                     </ColumnListItem>
                 </items>
