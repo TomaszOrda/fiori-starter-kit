@@ -110,6 +110,13 @@
           ]
         },
         {
+          "name": "CreateCustomer",
+          "pattern": "CreateCustomer",
+          "target": [
+            "CreateCustomer"
+          ]
+        },
+        {
           "name": "CustomerDetails",
           "pattern": "CustomerDetails/{CustomerID}",
           "target": [
@@ -118,6 +125,11 @@
         }
       ],
       "targets": {
+        "CreateCustomer": {
+          "viewType": "XML",
+          "viewName": "CreateCustomer",
+          "name": "CreateCustomer"
+        },
         "CustomerDetails": {
           "viewType": "XML",
           "viewName": "CustomerDetails",
