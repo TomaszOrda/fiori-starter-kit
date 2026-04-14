@@ -8,9 +8,9 @@ sap.ui.define([
         _onPatternMatched(oEvent){
             this.getView().bindElement({
                 path:`/Customers('${oEvent.getParameter("arguments").CustomerID}')`,
-                parameters: {
-                    expand: "Orders,Orders/Order_Details"
-                }
+                // parameters: {
+                //     expand: "Orders,Orders/Order_Details"
+                // }
             })
         },
         onInit() {
