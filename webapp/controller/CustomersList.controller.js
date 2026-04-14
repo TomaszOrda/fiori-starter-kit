@@ -1,0 +1,102 @@
+sap.ui.define([
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/Sorter",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
+    "sap/ui/export/Spreadsheet",
+    //Could i use sap.ui.export.Spreadsheet directly?
+], (Controller, Sorter, Filter, FilterOperator, Spreadsheet) => {
+    "use strict";
+
+    return Controller.extend("stk.starterkit.controller.CustomersList", {
+        onCustomerPress (oEvent) {
+            const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            const oNavigationParameters = {
+                CustomerID: oEvent.getSource().getBindingContext().getObject().CustomerID
+            }
+            oRouter.navTo("CustomerDetails", oNavigationParameters);
+        },
+
+        onSortByCountry: function() {
+            const oTable = this.byId("customersTable");
+            const oBinding = oTable.getBinding("items");
+            const bSortDescending = oBinding.aSorters[0] ? !oBinding.aSorters[0].bDescending : false;
+            const oSorter = new Sorter(`Country`, bSortDescending);
+            // Sort by company name if country is equal
+            const oSorterSecondary = new Sorter(`CompanyName`, false);
+            oBinding.sort([oSorter, oSorterSecondary]);
+        },
+
+        setCompanyFilter: function(oEvent){
+            //is getview required?
+            const oTable = this.getView().byId("customersTable");
+            const oBinding = oTable.getBinding("items");
+            const sCompanyName = oEvent.getSource().getValue();
+            //Could use FilterOperator.StartsWith
+            const oFilter = new Filter(`CompanyName`, FilterOperator.Contains, sCompanyName);
+            oBinding.filter([oFilter]);
+            this.updateNoCustomers()
+        },
+
+        onPressGenerateExcelReport: function(){
+            //We need to download from model. View is not reliable!
+            const oModel = this.getOwnerComponent().getModel();
+            //This seems redundant
+            const oServiceUrl = this.getView().getModel().getServiceUrl();
+            // alert(oModel);
+            // alert(oModel.getServiceMetadata());
+            // alert(oModel.getServiceMetadata().dataServices.toString());
+            // alert(oModel.getServiceMetadata().dataServices.schema);
+            const oEntity = oModel.getServiceMetadata()
+                                  .dataServices
+                                  .schema[0]
+                                  .entityType
+                                  .find((oEntity) => oEntity.name === "Customer")
+                                  .property;
+            const aCols = oEntity.map((oProp) => ({
+                label: oProp.name,
+                type: oProp.type,
+                property: oProp.name
+            }));
+            const oSettings = {
+                workbook: { columns: aCols },
+                dataSource: {
+                    type: "OData",
+                    dataUrl: `${oServiceUrl}/Customers`,
+                    serviceUrl: oServiceUrl,
+                    headers: {
+                        Accept: "application/json",
+                        "Accept-Language": "en",
+                        DataServiceVersion: "2.0",
+                        Connection: "keep-alive"
+                    }
+                },
+                fileName: "Customers.xlsx",
+                worker: true,
+                sizeLimit:500
+            };
+            const oSheet = new Spreadsheet(oSettings);
+            oSheet.build().finally(function(){
+                oSheet.destroy();
+            });
+        },
+
+        _onPatternMatched: async function (){
+            const oCustomersModel = this.getOwnerComponent().getModel("CustomersProperties");
+            oCustomersModel.setProperty("/noCustomers", 0);
+            this.updateNoCustomers()
+        },
+
+        getNoCustomers: function() {
+            return this.byId("customersTable").getItems().length;
+        },
+
+        updateNoCustomers: function(){
+            const oCustomersModel = this.getOwnerComponent().getModel("CustomersProperties");
+            const iTableRows = this.getNoCustomers();
+            oCustomersModel.setProperty("/noCustomers", iTableRows)
+        },
+        onInit() {
+        }
+    });
+});

@@ -1,0 +1,27 @@
+<mvc:View id="CustomerDetails" controllerName="stk.starterkit.controller.CustomerDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page xmlns:cd="hyyp://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="CustomerDetilsPage" showNavButton="true" navButtonPress="handleNavButtonPress" title="{CompanyName}">
+        <Table id="detailsTable" items="{Orders}" headerText="Orders">
+                <columns>
+                    <Column id="orderIDColumn">
+                        <Label id="orderIDLabel" text="{i18n>orderID}"/>
+                    </Column>
+                    <Column id="employeeColumn">
+                        <Label id="employeeLabel" text="{i18n>employee}"/>
+                    </Column>
+                    <Column id="orderDateColumn">
+                        <Label id="orderDateLabel" text="{i18n>orderDate}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="ordersListItem">
+                        <Text id="orderIDText" text="{OrderID}"/>
+                        <Text id="employeeText" text="{Employee}"/>
+                        <Text id="orderDateText" text="{OrderDate}"/>
+                        
+                    </ColumnListItem>
+                </items>
+            </Table>
+    </Page>
+</mvc:View>
