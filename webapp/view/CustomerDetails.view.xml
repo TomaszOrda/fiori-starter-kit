@@ -2,7 +2,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page xmlns:cd="hyyp://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="CustomerDetilsPage" showNavButton="true" navButtonPress="handleNavButtonPress" title="{CompanyName}">
-        <Table id="detailsTable"  items="{path:'Orders', parameters:{expand:'Order_Details,Employee'}}" headerText="{i18n>orders}">
+        <Table id="detailsTable"  items="{path:'Orders', parameters:{expand:'Order_Details,Employee', select:'OrderID,OrderDate,Employee/FirstName,Employee/LastName'}}" headerText="{i18n>orders}">
                 <columns>
                     <Column id="orderIDColumn">
                         <Label id="orderIDLabel" text="{i18n>orderID}"/>
