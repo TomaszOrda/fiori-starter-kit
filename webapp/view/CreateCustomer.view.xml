@@ -1,0 +1,52 @@
+<mvc:View id="CreateCustomer"
+    controllerName="stk.starterkit.controller.CreateCustomer"
+    xmlns:form="sap.ui.layout.form"
+	xmlns:f="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+        
+    <Page xmlns:cd="hyyp://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" id="CreateCustomerPage" showNavButton="true" navButtonPress="handleNavButtonPress">
+        <f:Form editable="true">
+            <f:toolbar>
+                <OverflowToolbar><!--Overflowtoolbar?-->
+                    <Title text="{i18n>CreateCustomer}">
+                    </Title>
+                    <ToolbarSpacer/>
+                    <Button icon="sap-icon://accept" text="{i18n>CreateCustomer}" type="Accept" press="onConfirmCreateCustomer"></Button>
+                </OverflowToolbar>
+            </f:toolbar>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="{i18n>customerIdLabel}">
+							<f:fields>
+								<Input id="customerIdInput" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="{i18n>customerNameLabel}">
+							<f:fields>
+								<Input id="customerNameInput" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+    </Page>
+</mvc:View>

@@ -9,6 +9,10 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("stk.starterkit.controller.CustomersList", {
+        onCreate (oEvent) {
+            const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+            oRouter.navTo("CreateCustomer", {});
+        },
         onCustomerPress (oEvent) {
             const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             const oNavigationParameters = {
