@@ -1,10 +1,11 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-], (Controller) => {
+    "stk/starterkit/model/formatter"
+], (Controller, Formatter) => {
     "use strict";
 
     return Controller.extend("stk.starterkit.controller.CustomerDetails", {
-
+        formatter:Formatter,
         _onPatternMatched(oEvent){
             this.getView().bindElement({
                 path:`/Customers('${oEvent.getParameter("arguments").CustomerID}')`,
