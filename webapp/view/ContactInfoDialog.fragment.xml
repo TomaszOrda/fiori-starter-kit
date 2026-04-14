@@ -1,0 +1,55 @@
+<core:FragmentDefinition
+    xmlns:form="sap.ui.layout.form" 
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+    <Dialog id="contactDialog" title="{i18n>contactInformation}" >
+        <f:Form id="contactDialogForm" editable="false">
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Name">
+							<f:fields>
+								<Text text="{ContactName}" id="nameText"  />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Contact Title">
+							<f:fields>
+								<Text text="{ContactTitle}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Address">
+							<f:fields>
+								<Text text="{Address} {City}" />
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Phone">
+							<f:fields>
+								<Text text="{Phone}" id="countryText" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+        <endButton>
+            <Button id="closeDialog" text="Close" type="Negative" press="onCloseContactInfo"></Button>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
