@@ -24,22 +24,22 @@
 			<f:formContainers>
 				<f:FormContainer>
 					<f:formElements>
-						<f:FormElement label="Name">
+						<f:FormElement label="{i18n>contactName}">
 							<f:fields>
 								<Text text="{ContactName}" id="nameText"  />
 							</f:fields>
 						</f:FormElement>
-						<f:FormElement label="Contact Title">
+						<f:FormElement label="{i18n>contactTitle}">
 							<f:fields>
 								<Text text="{ContactTitle}" />
 							</f:fields>
 						</f:FormElement>
-						<f:FormElement label="Address">
+						<f:FormElement label="{i18n>contactAddress}">
 							<f:fields>
 								<Text text="{Address} {City}" />
 							</f:fields>
 						</f:FormElement>
-						<f:FormElement label="Phone">
+						<f:FormElement label="{i18n>contactPhone}">
 							<f:fields>
 								<Text text="{Phone}" id="countryText" />
 							</f:fields>
@@ -49,7 +49,7 @@
 			</f:formContainers>
 		</f:Form>
         <endButton>
-            <Button id="closeDialog" text="Close" type="Negative" press="onCloseContactInfo"></Button>
+            <Button id="closeDialog" text="{i18n>dialogClose}" type="Negative" press="onCloseContactInfo"></Button>
         </endButton>
     </Dialog>
 </core:FragmentDefinition>
