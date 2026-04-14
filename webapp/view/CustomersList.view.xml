@@ -19,7 +19,14 @@
             <Button id="ExportCSVButton" text="Export customers list" press="onPressGenerateExcelReport" icon="sap-icon://download"/>
             <Input id="FilterCompanyButton" submit="setCompanyFilter"/>
             <!-- <Table id="customersTable" items="{/Customers}" headerText="Companies"> -->
-            <Table id="customersTable" items="{path:'/Customers', parameters:{select:'CompanyName,Country,CustomerID'}}" headerText="Companies">
+            <Table id="customersTable" items="{path:'/Customers', parameters:{select:'CompanyName,Country,CustomerID'}}">
+                <headerToolbar>
+                    <OverflowToolbar >
+                        <Title text="{i18n>CustomersTableHeader}" level="H2"/>
+                        <ToolbarSpacer/>
+                        <Button text="{i18n>Create}" press="onCreate"/>
+                    </OverflowToolbar>
+                </headerToolbar>
                 <columns>
                     <Column id="companyNameColumn">
                         <Label id="companyNameLabel" text="{i18n>companyName}"/>
