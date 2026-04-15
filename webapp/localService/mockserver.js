@@ -1,116 +1,57 @@
 sap.ui.define([
-	"sap/ui/core/util/MockServer",
-	"sap/ui/model/json/JSONModel",
-	"sap/base/util/UriParameters",
-	"sap/base/Log"
-], function (MockServer, JSONModel, UriParameters, Log) {
-	"use strict";
 
-	var oMockServer,
-		_sAppPath = "sap/ui/demo/worklist/",
-		_sJsonFilesPath = _sAppPath + "localService/mockdata";
+    "sap/ui/core/util/MockServer",
 
-	var oMockServerInterface = {
+    "sap/base/Log"
 
-		/**
-		 * Initializes the mock server asynchronously.
-		 * You can configure the delay with the URL parameter "serverDelay".
-		 * The local mock data in this folder is returned instead of the real data for testing.
-		 * @protected
-		 * @param {object} [oOptionsParameter] init parameters for the mockserver
-		 * @returns{Promise} a promise that is resolved when the mock server has been started
-		 */
-		init : function (oOptionsParameter) {
-			var oOptions = oOptionsParameter || {};
+], function (MockServer, Log) {
 
-			return new Promise(function(fnResolve, fnReject) {
-				var sManifestUrl = sap.ui.require.toUrl(_sAppPath + "manifest.json"),
-					oManifestModel = new JSONModel(sManifestUrl);
+    "use strict";
 
-				oManifestModel.attachRequestCompleted(function ()  {
-					var oUriParameters = new UriParameters(window.location.href),
-						// parse manifest for local metatadata URI
-						sJsonFilesUrl = sap.ui.require.toUrl(_sJsonFilesPath),
-						oMainDataSource = oManifestModel.getProperty("/sap.app/dataSources/mainService"),
-						sMetadataUrl = sap.ui.require.toUrl(_sAppPath + oMainDataSource.settings.localUri),
-						// ensure there is a trailing slash
-						sMockServerUrl = /.*\/$/.test(oMainDataSource.uri) ? oMainDataSource.uri : oMainDataSource.uri + "/";
+    return {
 
-					// create a mock server instance or stop the existing one to reinitialize
-					if (!oMockServer) {
-						oMockServer = new MockServer({
-							rootUri: sMockServerUrl
-						});
-					} else {
-						oMockServer.stop();
-					}
+        /**
 
-					// configure mock server with the given options or a default delay of 0.5s
-					MockServer.config({
-						autoRespond : true,
-						autoRespondAfter : (oOptions.delay || oUriParameters.get("serverDelay") || 500)
-					});
+        * Initializes the mock server.
 
-					// simulate all requests using mock data
-					oMockServer.simulate(sMetadataUrl, {
-						sMockdataBaseUrl : sJsonFilesUrl,
-						bGenerateMissingMockData : true
-					});
+        * You can configure the delay with the URL parameter "serverDelay".
 
-					var aRequests = oMockServer.getRequests();
+        * The local mock data in this folder is returned instead of the real data for testing.
 
-					// compose an error response for each request
-					var fnResponse = function (iErrCode, sMessage, aRequest) {
-						aRequest.response = function(oXhr){
-							oXhr.respond(iErrCode, {"Content-Type": "text/plain;charset=utf-8"}, sMessage);
-						};
-					};
+        * @public
 
-					// simulate metadata errors
-					if (oOptions.metadataError || oUriParameters.get("metadataError")) {
-						aRequests.forEach(function (aEntry) {
-							if (aEntry.path.toString().indexOf("$metadata") > -1) {
-								fnResponse(500, "metadata Error", aEntry);
-							}
-						});
-					}
+        */
 
-					// simulate request errors
-					var sErrorParam = oOptions.errorType || oUriParameters.get("errorType"),
-						iErrorCode = sErrorParam === "badRequest" ? 400 : 500;
-					if (sErrorParam) {
-						aRequests.forEach(function (aEntry) {
-							fnResponse(iErrorCode, sErrorParam, aEntry);
-						});
-					}
+        init: function () {
 
-					// custom mock behaviour may be added here
+            // create
 
-					// set requests and start the server
-					oMockServer.setRequests(aRequests);
-					oMockServer.start();
+            var oMockServer = new MockServer({
 
-					Log.info("Running the app with mock data");
-					fnResolve();
-				});
+                rootUri: "/V2/Northwind/Northwind.svc/"
 
-				oManifestModel.attachRequestFailed(function () {
-					var sError = "Failed to load application manifest";
+            });
 
-					Log.error(sError);
-					fnReject(new Error(sError));
-				});
-			});
-		},
+            // simulate against the metadata and mock data
 
-		/**
-		 * @public returns the mockserver of the app, should be used in integration tests
-		 * @returns {sap.ui.core.util.MockServer} the mockserver instance
-		 */
-		getMockServer : function () {
-			return oMockServer;
-		}
-	};
+            oMockServer.simulate("../localService/metadata.xml", {
 
-	return oMockServerInterface;
+                sMockdataBaseUrl: "../localService/mockdata",
+
+                bGenerateMissingMockData: true
+
+            })
+
+            // start
+
+            oMockServer.start();
+
+            Log.info("Running the app with mock data");
+
+        }
+
+    };
+
+ 
+
 });
