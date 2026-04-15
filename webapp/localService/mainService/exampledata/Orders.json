@@ -1,0 +1,22 @@
+[
+  {
+    "OrderID": 1001,
+    "CustomerID": "C001",
+    "EmployeeID": 1,
+    "OrderDate": "/Date(1711929600000)/",
+    "ShipName": "Acme GmbH",
+    "ShipCity": "Wroclaw",
+    "ShipCountry": "Poland",
+    "Freight": 25.00
+  },
+  {
+    "OrderID": 1002,
+    "CustomerID": "C002",
+    "EmployeeID": 2,
+    "OrderDate": "/Date(1712016000000)/",
+    "ShipName": "Globex Corp",
+    "ShipCity": "Berlin",
+    "ShipCountry": "Germany",
+    "Freight": 40.50
+  }
+]

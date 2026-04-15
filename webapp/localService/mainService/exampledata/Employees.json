@@ -1,0 +1,20 @@
+[
+  {
+    "EmployeeID": 1,
+    "FirstName": "Jan",
+    "LastName": "Kowalski",
+    "Title": "Sales Representative",
+    "City": "Warsaw",
+    "Country": "Poland",
+    "HireDate": "/Date(1609459200000)/"
+  },
+  {
+    "EmployeeID": 2,
+    "FirstName": "Maria",
+    "LastName": "Schmidt",
+    "Title": "Sales Manager",
+    "City": "Hamburg",
+    "Country": "Germany",
+    "HireDate": "/Date(1577836800000)/"
+  }
+]
