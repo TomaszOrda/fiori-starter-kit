@@ -1,0 +1,20 @@
+[
+  {
+    "CustomerID": "C001",
+    "CompanyName": "Acme GmbH",
+    "ContactName": "Alex Smith",
+    "ContactTitle": "Purchasing Manager",
+    "City": "Wroclaw",
+    "Country": "Poland",
+    "Phone": "+48 71 123 4567"
+  },
+  {
+    "CustomerID": "C002",
+    "CompanyName": "Globex Corp",
+    "ContactName": "Anna Nowak",
+    "ContactTitle": "CEO",
+    "City": "Berlin",
+    "Country": "Germany",
+    "Phone": "+49 30 987 6543"
+  }
+]
