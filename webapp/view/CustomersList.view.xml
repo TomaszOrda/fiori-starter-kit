@@ -24,7 +24,7 @@
                     <OverflowToolbar >
                         <Title text="{i18n>CustomersTableHeader}" level="H2"/>
                         <ToolbarSpacer/>
-                        <Button text="{i18n>CreateCustomer}" press="onCreate"/>
+                        <Button text="{i18n>CreateCustomer}" press="onCreate" class="sapUiMediumMarginEnd sapUiTinyMarginTopBottom"/>
                     </OverflowToolbar>
                 </headerToolbar>
                 <columns>
