@@ -3,3 +3,7 @@
 .cornflowerBackground{
     background-color: #dedef0;
 }
+
+.blueHeaderText tr:first-child span{
+    color: #00f;
+}
