@@ -3,7 +3,7 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <content>
-            <Carousel height="200px" width="100%" id="carousel">
+            <Carousel height="200px" width="100%" id="carousel" class="cornflowerBackground">
             <pages>
                 <Image id="imagelogo2" src="https://companieslogo.com/img/orig/CAP.PA-9b4110b0.png?t=1720244491"/>
                 <Image id="imagelogo1" src="https://companieslogo.com/img/orig/CAP.PA_BIG-cbc06f01.png?t=1720244491"/>
@@ -19,7 +19,7 @@
             <Button id="ExportCSVButton" text="Export customers list" press="onPressGenerateExcelReport" icon="sap-icon://download"/>
             <Input id="FilterCompanyButton" submit="setCompanyFilter"/>
             <!-- <Table id="customersTable" items="{/Customers}" headerText="Companies"> -->
-            <Table id="customersTable" items="{path:'/Customers', parameters:{select:'CompanyName,Country,CustomerID'}}">
+            <Table id="customersTable" items="{path:'/Customers', parameters:{select:'CompanyName,Country,CustomerID'}}" class="blueHeaderText">
                 <headerToolbar>
                     <OverflowToolbar >
                         <Title text="{i18n>CustomersTableHeader}" level="H2"/>
