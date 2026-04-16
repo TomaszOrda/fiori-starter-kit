@@ -4,6 +4,9 @@
     background-color: #dedef0;
 }
 
-.blueHeaderText tr:first-child span{
-    color: #00f;
+.blueHeaderText tbody tr:nth-child(odd){
+    background-color: #eee;
+}
+.blueHeaderText tbody tr:nth-child(even){
+    background-color: #fff;
 }
