@@ -110,6 +110,13 @@
           ]
         },
         {
+          "name": "EmployeesList",
+          "pattern": "EmployeesList",
+          "target": [
+            "EmployeesList"
+          ]
+        },
+        {
           "name": "CreateCustomer",
           "pattern": "CreateCustomer",
           "target": [
@@ -139,6 +146,11 @@
           "viewType": "XML",
           "viewName": "CustomersList",
           "name": "CustomersList"
+        },
+        "EmployeesList": {
+          "viewType": "XML",
+          "viewName": "EmployeesList",
+          "name": "EmployeesList"
         }
       }
     },
