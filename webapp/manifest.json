@@ -24,6 +24,10 @@
           "localUri": "localService/mainService/metadata.xml",
           "odataVersion": "2.0"
         }
+      },
+      "motivationService": {
+        "uri": "/motivationalAPI",
+        "type": "JSON"
       }
     }
   },

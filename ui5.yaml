@@ -18,6 +18,9 @@ server:
         backend:
           - path: /V2
             url: https://services.odata.org
+
+          - path: /motivationalAPI
+            url: https://api.forismatic.com/api/1.0/
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
