@@ -32,6 +32,10 @@
       "insultService": {
         "uri": "/insultAPI",
         "type": "JSON"
+      },
+      "insultService2": {
+        "uri": "/insultAPI2",
+        "type": "JSON"
       }
     }
   },

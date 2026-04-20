@@ -24,6 +24,9 @@ server:
 
           - path: /insultAPI
             url: https://insult.mattbas.org/api/insult.json
+
+          - path: /insultAPI2
+            destination: INSULT_API
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
