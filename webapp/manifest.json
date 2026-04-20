@@ -168,9 +168,9 @@
     },
     "flexEnabled": false,
     "rootView": {
-      "viewName": "stk.starterkit.view.Master",
+      "viewName": "stk.starterkit.view.App",
       "type": "XML",
-      "id": "Master",
+      "id": "App",
       "async": true
     }
   }
