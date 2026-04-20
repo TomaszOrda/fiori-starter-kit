@@ -29,8 +29,10 @@ sap.ui.define([
                     return this.waitFor({
                         id: "CustomersTable",
                         viewName: sViewName,
-                        success: function () {
+                        success: function (oTable) {
                             Opa5.assert.ok(true, "The table is displayed");
+                            const iItemsCount = oTable.getItems().length;
+                            Opa5.assert.notStrictEqual(iItemsCount, 0, `Table has : ${iItemsCount} items`);
                         },
                         errorMessage: "Did not find the table"
                     });
