@@ -21,6 +21,9 @@ server:
 
           - path: /motivationalAPI
             url: https://api.forismatic.com/api/1.0/
+
+          - path: /insultAPI
+            url: https://insult.mattbas.org/api/insult.json
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

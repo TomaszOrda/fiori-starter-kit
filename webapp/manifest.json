@@ -28,6 +28,10 @@
       "motivationService": {
         "uri": "/motivationalAPI",
         "type": "JSON"
+      },
+      "insultService": {
+        "uri": "/insultAPI",
+        "type": "JSON"
       }
     }
   },
