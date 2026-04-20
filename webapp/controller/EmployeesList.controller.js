@@ -10,12 +10,28 @@ sap.ui.define([
             oRouter.navTo("CustomersList", {});
         },
         onMotivate (oEvent) {
-            const sEmployeeID = oEvent.getSource().getBindingContext().getObject().CustomerID; 
-            alert(`Motivate ${sEmployeeID}`)
-        },
-        onFire (oEvent) {
-            const sEmployeeID = oEvent.getSource().getBindingContext().getObject().CustomerID; 
-            alert(`Fire ${sEmployeeID}`)
+            const oEmployee = oEvent.getSource().getBindingContext().getObject();
+            const sEmail = `${oEmployee.FirstName}.${oEmployee.LastName}@example.com`;
+            const sSubject = "Good job!";
+            const oModel = new sap.ui.model.json.JSONModel();
+            let sBody = "";
+
+            oModel.loadData(
+                "motivationalAPI", 
+                {
+                    method:"getQuote",
+                    lang:"en",
+                    format:"json",
+                    key:"motivational"
+                }
+                ).then(function (){
+                    const { quoteText, quoteAuthor } = oModel.getData(); 
+                    sBody = `${quoteText}` + (quoteAuthor ? ` — ${quoteAuthor}` : ``);
+                }).catch(function (){
+                    sBody = "You are doing well, thanks!";
+                }).finally(function (){
+                    sap.m.URLHelper.triggerEmail(sEmail, sSubject, sBody); 
+                });
         },
         onInit() {
         }
