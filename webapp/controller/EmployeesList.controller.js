@@ -33,6 +33,24 @@ sap.ui.define([
                     sap.m.URLHelper.triggerEmail(sEmail, sSubject, sBody); 
                 });
         },
+        onFire (oEvent) {
+            const oEmployee = oEvent.getSource().getBindingContext().getObject();
+            const sEmail = `${oEmployee.FirstName}.${oEmployee.LastName}@example.com`;
+            const sSubject = "We are disappointed!";
+            const oModel = new sap.ui.model.json.JSONModel();
+            let sBody = "";
+            
+            oModel.loadData(
+                "insultAPI", 
+                {},
+                ).then(function (){
+                    sBody = oModel.getData().insult;
+                }).catch(function (){
+                    sBody = "Do better next time...";
+                }).finally(function (){
+                    sap.m.URLHelper.triggerEmail(sEmail, sSubject, sBody); 
+                });
+        },
         onInit() {
         }
     });
