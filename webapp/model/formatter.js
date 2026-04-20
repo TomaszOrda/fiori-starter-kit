@@ -3,8 +3,9 @@ function () {
     "use strict";
 
     return {
-        formatName : function(sFirstName, sLastName){
-            return `${sFirstName[0]}. ${sLastName}`
+        formatName : function(sFirstNames, sLastName){
+            const sInitials = sFirstNames.split(" ").map((sFirstName) => sFirstName[0]+".").join(" ");
+            return `${sInitials} ${sLastName}`
         },
         formatEmployeeOrders : function(oOrders){
             //this does not seem fail safe, in odatav4 i would have no need for such aggregation
