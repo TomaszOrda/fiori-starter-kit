@@ -17,15 +17,15 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /V2
-            url: https://services.odata.org
+            destination: Northwind
 
           - path: /motivationalAPI
-            url: https://api.forismatic.com/api/1.0/
+            destination: Forismatic
 
           - path: /insultAPI
-            url: https://insult.mattbas.org/api/insult.json
-
-          - path: /insultAPI2
+            destination: InsultAPI
+          
+          - path: /insultAPI2  
             destination: INSULT_API
     - name: fiori-tools-appreload
       afterMiddleware: compression
