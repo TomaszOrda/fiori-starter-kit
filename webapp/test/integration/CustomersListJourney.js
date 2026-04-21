@@ -13,8 +13,9 @@ sap.ui.define([
         Given.iStartMyApp();
 
         // Assertions
-        Then.onTheCustomersListPage.iShouldSeeTheCustomersList();
+        Then.onTheCustomersListPage.iShouldSeeTheCustomersListView();
         Then.onTheCustomersListPage.iShouldFindTheTable();
+        Then.onTheCustomersListPage.iShouldFindTheCarousel();
 
         // Cleanup
         Then.iTeardownMyApp();

@@ -15,7 +15,7 @@ sap.ui.define([
 
 		// Assertions
 		Then.onTheAppPage.iShouldSeeTheApp();
-      	Then.onTheViewPage.iShouldSeeThePageView();
+      	Then.onTheCustomersListPage.iShouldSeeTheCustomersListView();
 
 		//Cleanup
 		Then.iTeardownMyApp();
