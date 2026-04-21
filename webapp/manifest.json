@@ -107,13 +107,11 @@
         "clearControlAggregation": false
       },
       "routes": [
-
         {
           "name": "Default",
           "pattern": "",
           "target": "CustomersList"
         },
-
         {
           "name": "CustomersList",
           "pattern": "CustomersList",
@@ -173,5 +171,9 @@
       "id": "App",
       "async": true
     }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "stkstarterkit"
   }
 }
