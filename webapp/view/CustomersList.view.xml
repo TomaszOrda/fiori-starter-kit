@@ -16,17 +16,17 @@
             </customLayout>
             </Carousel>
             <Button id="SortCountryButton" press="onSortByCountry" icon="sap-icon://sort"/>
-            <Button id="ExportCSVButton" text="{i18n>ExportCustomersData}" press="onPressGenerateExcelReport" icon="sap-icon://download"/>
-            <Button id="goToEmployees" text="{i18n>OpenEmployeesList}" press="onGoToEmployees" icon="sap-icon://employee"/>
+            <Button id="ExportCSVButton" text="{i18n>exportCustomersData}" press="onPressGenerateExcelReport" icon="sap-icon://download"/>
+            <Button id="goToEmployees" text="{i18n>goToEmployeesList}" press="onGoToEmployees" icon="sap-icon://employee"/>
             
             <Input id="FilterCompanyButton" submit="setCompanyFilter"/>
             <!-- <Table id="customersTable" items="{/Customers}" headerText="Companies"> -->
             <Table id="CustomersTable" items="{path:'/Customers', parameters:{select:'CompanyName,Country,CustomerID'}}" class="blueHeaderText">
                 <headerToolbar>
                     <OverflowToolbar >
-                        <Title text="{i18n>CustomersTableHeader}" level="H2"/>
+                        <Title text="{i18n>customersTableHeader}" level="H2"/>
                         <ToolbarSpacer/>
-                        <Button text="{i18n>CreateCustomer}" press="onCreate" class="sapUiMediumMarginEnd sapUiTinyMarginTopBottom"/>
+                        <Button text="{i18n>createCustomer}" press="onCreate" class="sapUiMediumMarginEnd sapUiTinyMarginTopBottom"/>
                     </OverflowToolbar>
                 </headerToolbar>
                 <columns>

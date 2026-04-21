@@ -81,7 +81,7 @@ sap.ui.define([
                         viewName: sViewName,
                         matchers: new sap.ui.test.matchers.I18NText({
                             propertyName: "text",
-                            key: "ExportCustomersData"
+                            key: "exportCustomersData"
                         }),
                         success: function () {
                             Opa5.assert.ok(true, "The export button is displayed");
@@ -96,7 +96,7 @@ sap.ui.define([
                         viewName: sViewName,
                         matchers: new sap.ui.test.matchers.I18NText({
                             propertyName: "text",
-                            key: "OpenEmployeesList"
+                            key: "goToEmployeesList"
                         }),
                         success: function () {
                             Opa5.assert.ok(true, "The employees list navigation button is displayed");
