@@ -16,8 +16,8 @@
             </customLayout>
             </Carousel>
             <Button id="SortCountryButton" press="onSortByCountry" icon="sap-icon://sort"/>
-            <Button id="ExportCSVButton" text="Export customers list" press="onPressGenerateExcelReport" icon="sap-icon://download"/>
-            <Button id="goToEmployees" text="Open Employees List" press="onGoToEmployees" icon="sap-icon://employee"/>
+            <Button id="ExportCSVButton" text="{i18n>ExportCustomersData}" press="onPressGenerateExcelReport" icon="sap-icon://download"/>
+            <Button id="goToEmployees" text="{i18n>OpenEmployeesList}" press="onGoToEmployees" icon="sap-icon://employee"/>
             
             <Input id="FilterCompanyButton" submit="setCompanyFilter"/>
             <!-- <Table id="customersTable" items="{/Customers}" headerText="Companies"> -->
