@@ -16,6 +16,8 @@ sap.ui.define([
         Then.onTheCustomersListPage.iShouldSeeTheCustomersListView();
         Then.onTheCustomersListPage.iShouldFindTheTable();
         Then.onTheCustomersListPage.iShouldFindTheCarousel();
+        Then.onTheCustomersListPage.iShouldFindTheSortButton();
+        Then.onTheCustomersListPage.iShouldFindTheExportButton();
 
         // Cleanup
         Then.iTeardownMyApp();

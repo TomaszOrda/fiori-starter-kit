@@ -48,6 +48,32 @@ sap.ui.define([
                         },
                         errorMessage: "Did not find the carousel"
                     });
+                },
+                
+                iShouldFindTheSortButton: function () {
+                    return this.waitFor({
+                        id: "SortCountryButton",
+                        viewName: sViewName,
+                        success: function () {
+                            Opa5.assert.ok(true, "The sort button is displayed");
+                        },
+                        errorMessage: "Did not find the sort button"
+                    });
+                },
+                
+                iShouldFindTheExportButton: function () {
+                    return this.waitFor({
+                        id: "ExportCSVButton",
+                        viewName: sViewName,
+                        matchers: new sap.ui.test.matchers.I18NText({
+                            propertyName: "text",
+                            key: "ExportCustomersData"
+                        }),
+                        success: function () {
+                            Opa5.assert.ok(true, "The export button is displayed");
+                        },
+                        errorMessage: "Did not find the export button"
+                    });
                 }
 
             }
