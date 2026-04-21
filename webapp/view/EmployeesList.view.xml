@@ -22,16 +22,16 @@
                     </OverflowToolbar>
                 </headerToolbar>
                 <columns>
-                    <Column>
+                    <Column id="ContactNameColumn">
                         <Label text="{i18n>contactName}"/>
                     </Column>
-                    <Column>
+                    <Column id="EmployeeTitleColumn">
                         <Label text="{i18n>employeeTitle}"/>
                     </Column>
-                    <Column>
+                    <Column id="EmployeeOrdersColumn">
                         <Label text="{i18n>orders}"/>
                     </Column>
-                    <Column>
+                    <Column id="ActionsColumn">
                         <Label text="{i18n>actions}"/>
                     </Column>
                 </columns>
