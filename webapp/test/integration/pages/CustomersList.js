@@ -9,7 +9,21 @@ sap.ui.define([
     Opa5.createPageObjects({
         onTheCustomersListPage: {
 
-            actions: {},
+            actions: {
+                iPressControl: function (sID) {
+                    return this.waitFor({
+                        controlType: "sap.m.Button",
+                        id: sID,
+                        viewName: sViewName,
+                        actions: new Press(),
+                        success: function() {
+                            Opa5.assert.ok(true, `Succesfully pressed ${sID}`);
+                        },
+                        errorMessage: "Count not ifnd the Control"
+                    })
+                }
+
+            },
 
             assertions: {
 
@@ -74,7 +88,22 @@ sap.ui.define([
                         },
                         errorMessage: "Did not find the export button"
                     });
-                }
+                },
+
+                iShouldFindTheEmployeesButton: function () {
+                    return this.waitFor({
+                        id: "goToEmployees",
+                        viewName: sViewName,
+                        matchers: new sap.ui.test.matchers.I18NText({
+                            propertyName: "text",
+                            key: "OpenEmployeesList"
+                        }),
+                        success: function () {
+                            Opa5.assert.ok(true, "The employees list navigation button is displayed");
+                        },
+                        errorMessage: "Did not find the employees list navigation button"
+                    });
+                },
 
             }
         }
