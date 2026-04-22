@@ -4,7 +4,6 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/export/Spreadsheet",
-    //Could i use sap.ui.export.Spreadsheet directly?
 ], (Controller, Sorter, Filter, FilterOperator, Spreadsheet) => {
     "use strict";
 
@@ -37,7 +36,6 @@ sap.ui.define([
         },
 
         setCompanyFilter: function(oEvent){
-            //is getview required?
             const oTable = this.getView().byId("customersTable");
             const oBinding = oTable.getBinding("items");
             const sCompanyName = oEvent.getSource().getValue();
@@ -52,10 +50,6 @@ sap.ui.define([
             const oModel = this.getOwnerComponent().getModel();
             //This seems redundant
             const oServiceUrl = this.getView().getModel().getServiceUrl();
-            // alert(oModel);
-            // alert(oModel.getServiceMetadata());
-            // alert(oModel.getServiceMetadata().dataServices.toString());
-            // alert(oModel.getServiceMetadata().dataServices.schema);
             const oEntity = oModel.getServiceMetadata()
                                   .dataServices
                                   .schema[0]
