@@ -48,8 +48,7 @@ sap.ui.define([
         onPressGenerateExcelReport: function(){
             //We need to download from model. View is not reliable!
             const oModel = this.getOwnerComponent().getModel();
-            //This seems redundant
-            const oServiceUrl = this.getView().getModel().getServiceUrl();
+            const oServiceUrl = oModel.getServiceUrl();
             const oEntity = oModel.getServiceMetadata()
                                   .dataServices
                                   .schema[0]
