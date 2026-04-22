@@ -83,22 +83,17 @@ sap.ui.define([
             });
         },
 
-        _onPatternMatched: async function (){
-            const oCustomersModel = this.getOwnerComponent().getModel("CustomersProperties");
-            oCustomersModel.setProperty("/noCustomers", 0);
-            this.updateNoCustomers()
+        onTableUpdateFinished(){
+            this.updateNoCustomers(this.byId("CustomersTable").getItems().length)
         },
 
-        getNoCustomers: function() {
-            return this.byId("customersTable").getItems().length;
-        },
-
-        updateNoCustomers: function(){
+        updateNoCustomers: function(iNoCustomers){
             const oCustomersModel = this.getOwnerComponent().getModel("CustomersProperties");
-            const iTableRows = this.getNoCustomers();
-            oCustomersModel.setProperty("/noCustomers", iTableRows)
+            oCustomersModel.setProperty("/noCustomers", iNoCustomers)
         },
         onInit() {
+            const oCustomersModel = this.getOwnerComponent().getModel("CustomersProperties");
+            oCustomersModel.setProperty("/noCustomers", 0);
         }
     });
 });

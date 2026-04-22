@@ -21,7 +21,7 @@
             
             <Input id="FilterCompanyButton" submit="setCompanyFilter"/>
             <!-- <Table id="customersTable" items="{/Customers}" headerText="Companies"> -->
-            <Table id="CustomersTable" items="{path:'/Customers', parameters:{select:'CompanyName,Country,CustomerID'}}" class="blueHeaderText">
+            <Table id="CustomersTable" items="{path:'/Customers', parameters:{select:'CompanyName,Country,CustomerID'}}" class="blueHeaderText" updateFinished=".onTableUpdateFinished">
                 <headerToolbar>
                     <OverflowToolbar >
                         <Title text="{i18n>customersTableHeader}" level="H2"/>
