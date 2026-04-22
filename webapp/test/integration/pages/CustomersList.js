@@ -31,7 +31,6 @@ sap.ui.define([
                     return this.waitFor({
                         viewName: sViewName,
                         id:"page",
-                        // id: "customersTable",
                         success: function () {
                             Opa5.assert.ok(true, "The " + sViewName + " view is displayed");
                         },

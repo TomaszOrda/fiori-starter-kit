@@ -9,10 +9,7 @@ sap.ui.define([
         formatter:Formatter,
         _onPatternMatched(oEvent){
             this.getView().bindElement({
-                path:`/Customers('${oEvent.getParameter("arguments").CustomerID}')`,
-                // parameters: {
-                //     expand: "Orders,Orders/Order_Details"
-                // }
+                path:`/Customers('${oEvent.getParameter("arguments").CustomerID}')`
             })
         },
         onShowContactInfo: function(){
