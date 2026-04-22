@@ -8,8 +8,7 @@ function () {
             return `${sInitials} ${sLastName}`
         },
         formatEmployeeOrders : function(oOrders){
-            //this does not seem fail safe, in odatav4 i would have no need for such aggregation
-            return `${Object.keys(oOrders).length}`
+            return `${oOrders.length}`
         }
     };
 
