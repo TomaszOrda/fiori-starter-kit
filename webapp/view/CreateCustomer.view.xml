@@ -9,10 +9,10 @@
         <f:Form editable="true">
             <f:toolbar>
                 <OverflowToolbar><!--Overflowtoolbar?-->
-                    <Title text="{i18n>CreateCustomer}">
+                    <Title text="{i18n>createCustomerAction}">
                     </Title>
                     <ToolbarSpacer/>
-                    <Button icon="sap-icon://accept" text="{i18n>CreateCustomer}" type="Accept" press="onConfirmCreateCustomer"></Button>
+                    <Button icon="sap-icon://accept" text="{i18n>createAction}" type="Accept" press="onConfirmCreateCustomer"></Button>
                 </OverflowToolbar>
             </f:toolbar>
 			<f:layout>
@@ -34,12 +34,12 @@
 			<f:formContainers>
 				<f:FormContainer>
 					<f:formElements>
-						<f:FormElement label="{i18n>customerIdLabel}">
+						<f:FormElement label="{i18n>customerID}">
 							<f:fields>
 								<Input id="customerIdInput" />
 							</f:fields>
 						</f:FormElement>
-						<f:FormElement label="{i18n>customerNameLabel}">
+						<f:FormElement label="{i18n>customerName}">
 							<f:fields>
 								<Input id="customerNameInput" />
 							</f:fields>
