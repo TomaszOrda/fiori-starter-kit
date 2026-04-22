@@ -3,7 +3,7 @@
     xmlns="sap.m">
     <Page title="{i18n>title}" showNavButton="true" navButtonPress="handleNavButtonPress">
         <content>            
-            <Button id="goToCustomers" text="{i18n>GoToCustomersList}" press="onGoToCustomersList" icon="sap-icon://customer"/>
+            <Button id="goToCustomers" text="{i18n>goToCustomersList}" press="onGoToCustomersList" icon="sap-icon://customer"/>
             <!-- Normally i would aggregate Orders inside items parameters, but it seems it is not available in odatav2 -->
             <Table 
                 id="employeesTable" 
@@ -16,7 +16,7 @@
                 class="blueHeaderText">
                 <headerToolbar>
                     <OverflowToolbar >
-                        <Title text="{i18n>EmployeesTableHeader}" level="H2"/>
+                        <Title text="{i18n>employeesTableHeader}" level="H2"/>
                         <!-- <ToolbarSpacer/>
                         <Button text="" press=""/> -->
                     </OverflowToolbar>
