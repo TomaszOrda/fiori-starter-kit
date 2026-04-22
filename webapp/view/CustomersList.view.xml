@@ -24,7 +24,7 @@
             <Table id="CustomersTable" items="{path:'/Customers', parameters:{select:'CompanyName,Country,CustomerID'}}" class="blueHeaderText" updateFinished=".onTableUpdateFinished">
                 <headerToolbar>
                     <OverflowToolbar >
-                        <Title text="{i18n>customersTableHeader}" level="H2"/>
+                        <Title text="{i18n>customersTableHeader}({CustomersProperties>/noCustomers})" level="H2"/>
                         <ToolbarSpacer/>
                         <Button text="{i18n>createCustomer}" press="onCreate" class="sapUiMediumMarginEnd sapUiTinyMarginTopBottom"/>
                     </OverflowToolbar>
