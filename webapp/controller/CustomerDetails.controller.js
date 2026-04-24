@@ -1,12 +1,17 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "stk/starterkit/model/formatter",
+    "stk/starterkit/model/backNavigation",
     "sap/ui/core/Fragment"
-], (Controller, Formatter, Fragment) => {
+], (Controller, Formatter, BackNavigation, Fragment) => {
     "use strict";
 
     return Controller.extend("stk.starterkit.controller.CustomerDetails", {
         formatter:Formatter,
+
+        handleNavButtonPress(){ 
+            BackNavigation.handleNavButtonPress("CustomersList")
+        },
         _onPatternMatched(oEvent){
             this.getView().bindElement({
                 path:`/Customers('${oEvent.getParameter("arguments").CustomerID}')`

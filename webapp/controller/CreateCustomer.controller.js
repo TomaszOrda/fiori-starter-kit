@@ -1,9 +1,14 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-], (Controller) => {
+    "stk/starterkit/model/backNavigation",
+], (Controller, BackNavigation) => {
     "use strict";
 
     return Controller.extend("stk.starterkit.controller.CreateCustomer", {
+        handleNavButtonPress(){ 
+            BackNavigation.handleNavButtonPress("CustomersList")
+        },
+
         onConfirmCreateCustomer(){
             const sId = this.byId("customerIdInput").getValue();
             const sName = this.byId("customerNameInput").getValue();
