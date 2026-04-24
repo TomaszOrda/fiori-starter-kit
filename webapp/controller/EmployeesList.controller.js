@@ -1,10 +1,14 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "stk/starterkit/model/formatter",
-], (Controller, Formatter) => {
+    "stk/starterkit/model/backNavigation",
+], (Controller, Formatter, BackNavigation) => {
     "use strict";
     return Controller.extend("stk.starterkit.controller.EmployeesList", {
         formatter:Formatter,
+        handleNavButtonPress(){ 
+            BackNavigation.handleNavButtonPress("CustomersList")
+        },
         onGoToCustomersList (oEvent) {
             const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             oRouter.navTo("CustomersList", {});
