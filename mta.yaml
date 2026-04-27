@@ -61,7 +61,11 @@ resources:
 - name: stkstarterkit-destination-service
   type: org.cloudfoundry.managed-service
   parameters:
+    service: destination
+    service-name: stkstarterkit-destination-service
+    service-plan: lite
     config:
+      version: 1.0.0
       HTML5Runtime_enabled: true
       init_data:
         instance:
@@ -71,11 +75,45 @@ resources:
             ProxyType: Internet
             Type: HTTP
             URL: https://ui5.sap.com
+          
+          - Authentication: NoAuthentication
+            Name: Northwind
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://services.odata.org            
+            HTML5DynamicDestination: true
+            WebIDEEnabled: true
+            WebIDESystem: Northwind
+            WebIDEUsage: odata_gen
+
+          - Authentication: NoAuthentication
+            Name: Forismatic
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://api.forismatic.com/api/1.0       
+            HTML5DynamicDestination: true
+            WebIDEEnabled: true
+            WebIDEUsage: odata_gen
+          
+          - Authentication: NoAuthentication
+            Name: INSULT_API
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://evilinsult.com/generate_insult.php
+            HTML5DynamicDestination: true
+            WebIDEEnabled: true
+            WebIDEUsage: odata_gen
+            TrustAll: true
+          
+          - Authentication: NoAuthentication
+            Name: InsultApi
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://insult.mattbas.org/api/insult.json
+            HTML5DynamicDestination: true
+            WebIDEEnabled: true
+            WebIDEUsage: odata_gen
           existing_destinations_policy: update
-      version: 1.0.0
-    service: destination
-    service-name: stkstarterkit-destination-service
-    service-plan: lite
 - name: stkstarterkit-uaa
   type: org.cloudfoundry.managed-service
   parameters:
