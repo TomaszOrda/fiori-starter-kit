@@ -19,13 +19,13 @@ server:
           - path: /V2
             destination: Northwind
 
-          - path: /motivationalAPI
+          - path: /test/motivationalAPI
             destination: Forismatic
 
-          - path: /insultAPI
+          - path: /test/insultAPI
             destination: InsultAPI
           
-          - path: /insultAPI2  
+          - path: /test/insultAPI2  
             destination: INSULT_API
     - name: fiori-tools-appreload
       afterMiddleware: compression
