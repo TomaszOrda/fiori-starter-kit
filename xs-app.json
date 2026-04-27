@@ -3,6 +3,21 @@
   "authenticationMethod": "route",
   "routes": [
     {
+      "source": "^/motivationalAPI(.*)$",
+      "target": "$1",
+      "destination": "Forismatic",
+      "authenticationType": "none",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/insultAPI(.*)$",
+      "target": "$1",
+      "destination": "InsultAPI",
+      "authenticationType": "none",
+      "csrfProtection": false
+    },
+
+    {
       "source": "^/V2/(.*)$",
       "target": "/V2/$1",
       "destination": "Northwind",
@@ -21,6 +36,7 @@
       "authenticationType": "none",
       "destination": "ui5"
     },
+    
     {
       "source": "^(.*)$",
       "target": "$1",
