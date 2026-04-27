@@ -7,7 +7,7 @@ sap.ui.define([
     return Controller.extend("stk.starterkit.controller.EmployeesList", {
         formatter:Formatter,
         handleNavButtonPress(){ 
-            BackNavigation.handleNavButtonPress("CustomersList")
+            BackNavigation.handleNavButtonPress(this, "CustomersList")
         },
         onGoToCustomersList (oEvent) {
             const oRouter = sap.ui.core.UIComponent.getRouterFor(this);

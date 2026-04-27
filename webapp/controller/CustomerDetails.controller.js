@@ -10,7 +10,7 @@ sap.ui.define([
         formatter:Formatter,
 
         handleNavButtonPress(){ 
-            BackNavigation.handleNavButtonPress("CustomersList")
+            BackNavigation.handleNavButtonPress(this, "CustomersList")
         },
         _onPatternMatched(oEvent){
             this.getView().bindElement({

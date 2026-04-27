@@ -6,7 +6,7 @@ sap.ui.define([
 
     return Controller.extend("stk.starterkit.controller.CreateCustomer", {
         handleNavButtonPress(){ 
-            BackNavigation.handleNavButtonPress("CustomersList")
+            BackNavigation.handleNavButtonPress(this, "CustomersList")
         },
 
         onConfirmCreateCustomer(){
