@@ -26,7 +26,7 @@ sap.ui.define([
         },
 
         onSortByCountry: function() {
-            const oTable = this.byId("customersTable");
+            const oTable = this.byId("CustomersTable");
             const oBinding = oTable.getBinding("items");
             const bSortDescending = oBinding.aSorters[0] ? !oBinding.aSorters[0].bDescending : false;
             const oSorter = new Sorter(`Country`, bSortDescending);
@@ -36,7 +36,7 @@ sap.ui.define([
         },
 
         setCompanyFilter: function(oEvent){
-            const oTable = this.getView().byId("customersTable");
+            const oTable = this.getView().byId("CustomersTable");
             const oBinding = oTable.getBinding("items");
             const sCompanyName = oEvent.getSource().getValue();
             //Could use FilterOperator.StartsWith
