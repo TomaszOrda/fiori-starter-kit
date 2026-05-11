@@ -5,6 +5,7 @@
         <content>            
             <Button id="goToCustomers" text="{i18n>goToCustomersList}" press="onGoToCustomersList" icon="sap-icon://customer"/>
             <!-- Normally i would aggregate Orders inside items parameters, but it seems it is not available in odatav2 -->
+            <!-- For example: <Table id="employeesTable" items="{path:'/Employees', parameters:{apply:'groupby((EmployeeID,LastName,FirstName,Title),aggregate(Orders/OrderID with count as OrdersCount))'}}" class="blueHeaderText"> -->
             <Table 
                 id="employeesTable" 
                 items="{path:'/Employees', 
