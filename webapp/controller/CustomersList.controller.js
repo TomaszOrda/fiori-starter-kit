@@ -46,9 +46,14 @@ sap.ui.define([
         },
 
         onPressGenerateExcelReport: function(){
-            //We need to download from model. View is not reliable!
             const oModel = this.getOwnerComponent().getModel();
-            const oServiceUrl = oModel.getServiceUrl();
+            // Downloading from model might be more reliable
+            // const oServiceUrl = oModel.getServiceUrl();
+            // But oBinding will have all modifications applied 
+            // Consult SAP sample https://ui5.sap.com/#/entity/sap.ui.export.Spreadsheet/sample/sap.ui.export.sample.table/code
+            const oTable = this.getView().byId("CustomersTable");
+            const oBinding = oTable.getBinding("items");
+			
             const oEntity = oModel.getServiceMetadata()
                                   .dataServices
                                   .schema[0]
@@ -60,19 +65,21 @@ sap.ui.define([
                 type: oProp.type,
                 property: oProp.name
             }));
+            
             const oSettings = {
                 workbook: { columns: aCols },
-                dataSource: {
-                    type: "OData",
-                    dataUrl: `${oServiceUrl}/Customers`,
-                    serviceUrl: oServiceUrl,
-                    headers: {
-                        Accept: "application/json",
-                        "Accept-Language": "en",
-                        DataServiceVersion: "2.0",
-                        Connection: "keep-alive"
-                    }
-                },
+                dataSource: oBinding,
+                // dataSource: {
+                //     type: "OData",
+                //     dataUrl: `${oServiceUrl}/Customers`,
+                //     serviceUrl: oServiceUrl,
+                //     headers: {
+                //         Accept: "application/json",
+                //         "Accept-Language": "en",
+                //         DataServiceVersion: "2.0",
+                //         Connection: "keep-alive"
+                //     }
+                // },
                 fileName: "Customers.xlsx",
                 worker: true,
                 sizeLimit:500
